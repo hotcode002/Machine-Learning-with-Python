@@ -19,7 +19,6 @@ def str_to_bool (s ) :
 while ( True ) : 
     question = random.choice( list(q.keys()))
     answer = input ( question + " - ")
-    answer.capitalize()
     answer = str_to_bool ( answer)
     if answer == q.get(question) :
         print ( " correct ")
