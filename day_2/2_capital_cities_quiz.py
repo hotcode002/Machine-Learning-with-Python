@@ -1,6 +1,7 @@
 import csv
 import random
 
+
 file = open( "./data/capital_cities.csv" )
 capital_cities = csv.reader ( file )
 
