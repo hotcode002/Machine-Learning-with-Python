@@ -1,3 +1,10 @@
+# In this program we will learn about
+# 1. sets Data Structure
+# 2. set operations
+#    - union
+#    - intersection
+#    - difference
+
 midwest_states = {"North Dakota", "South Dakota", "Nebraska", "Minnesota", \
                   "Iowa", "Missouri", "Wisconsin", "Illinois", "Kansas",   \
                   "Michigan", "Indiana", "Ohio"}

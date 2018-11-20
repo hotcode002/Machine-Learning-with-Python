@@ -1,3 +1,5 @@
+# This is an enhanced version of version 1
+
 import csv
 import random
 

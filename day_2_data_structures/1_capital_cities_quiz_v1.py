@@ -1,3 +1,7 @@
+# In this program we will learn
+# 1 - Dictionary Data Structure
+# 2 - Functions
+
 import random
 
 q = {"The capital of India is New Delhi": True,
