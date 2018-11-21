@@ -1,3 +1,8 @@
+# In this program we will learn about
+# 1. string split
+# 2. string concatenation
+# 3. string length
+
 user_input = input ( "Enter a string to reverse - ")
 user_input = user_input.split ( " ")
 

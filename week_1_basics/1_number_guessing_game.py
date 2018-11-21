@@ -1,3 +1,10 @@
+# In this program we will learn about
+# 1. Functions
+# 2. while Loop
+# 3. if statement
+# 4. boolean values
+# 5. type conversion
+
 secret_num = 59
 print ( " Guess a number between 1 and 100")
 num = input ()
