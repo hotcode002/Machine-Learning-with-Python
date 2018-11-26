@@ -3,6 +3,7 @@
 # 2. modulo division ( % )
 # 3. use of flags
 # 4. for - else syntax
+# 5. type casting
 
 print ( "Prime number program ")
 user_input = input ( " Enter a number greater than 1 - ")
