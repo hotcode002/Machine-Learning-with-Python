@@ -1,6 +1,6 @@
 # Learning - 
 #   In this program, we will be learning
-#       1. Take a list of numbers from the user
+#       1. How to take a list of numbers from the user
 #       2. Sort them
 # Questions -
 #   1. what would happen if you did not type cast the user input to int 
