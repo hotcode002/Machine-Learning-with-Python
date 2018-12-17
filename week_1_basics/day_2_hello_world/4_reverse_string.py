@@ -5,6 +5,7 @@
 
 user_input = input ( "Enter a string to reverse - ")
 user_input = user_input.split ( " ")
+print ( user_input[0] )
 
 user_output = ""
 str_len = len(user_input)
