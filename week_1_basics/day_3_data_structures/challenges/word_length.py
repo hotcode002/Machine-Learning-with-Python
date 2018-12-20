@@ -20,12 +20,12 @@ for word in words :
     if word_count.get(word) == None :
         word_count[word] = len(word)
 
-# Dictionaries cannot be sorted. So, create a list of tuples
+# Dictionaries cannot be sorted. So, create a list of tuples or lists
 t_word_count = []
 for word in word_count.keys() :
     t_word_count.append( [ word, word_count.get(word) ] )
 
-# The sort criteria is the
+# The sort criteria is the word count
 def sort_criteria(ls) :
     return ls[1]
 
