@@ -2,6 +2,7 @@
 # In this program, we will learn about 
 # 1. list data structure
 # 2. Iterate over a list
+# 3. Length of a list
 
 # Needed in case you don't want to iterate over the list to calculate sum of floats
 # import math
