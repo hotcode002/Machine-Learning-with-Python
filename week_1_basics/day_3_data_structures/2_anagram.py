@@ -9,3 +9,11 @@ if sorted(first_word) == sorted(second_word) :
     print ( first_word, " and ", second_word, " are anagrams")
 else :
     print ( first_word, " and ", second_word, " are not anagrams")
+
+# convert the word to a list ( break it down into it's individual letters )
+# and sort to compare
+
+# if list(first_word).sort() == list(second_word).sort() :
+#     print ( first_word, " and ", second_word, " are anagrams")
+# else :
+#     print ( first_word, " and ", second_word, " are not anagrams")    
