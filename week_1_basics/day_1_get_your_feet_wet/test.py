@@ -1,11 +1,7 @@
-a = "dart"
-b = "trad"
+import array
 
-a = sorted(a)
-b = sorted(b)
+i = array.array('u')
 
-print (a)
+i.append('Siva')
 
-print ( b)
-
-print ( a==b)
+print ( i)
