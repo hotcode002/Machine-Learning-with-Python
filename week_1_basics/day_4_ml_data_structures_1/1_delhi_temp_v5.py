@@ -3,16 +3,12 @@
 #    arrays using numpy's inbuilt function genfromtxt(). This is much faster.
 # 2. Also, we have found that sensor 6 has malfunctioned and we would rather
 #    ignore it for the time being for analysis.
-# 3. Sensor 1 seems 10% hypersensitive. Cut down it's value by 10% overall.
-# 4. Also, we have found that the rows 1 to 10 have got corrupted and would 
+# 3. Also, we have found that the rows 1 to 10 have got corrupted and would 
 #    need to be ignored for analysis. 
-# 5. Split the array into 2 parts for further processing
+# 4. Split the array into 2 parts for further processing
 #    -- Sensors 1,2,3 
 #    -- Sensors 4,5
-# 6. Calculate the hourly mean across the first and second dataset. Essentially
-#    they should be the same with very little variation. Compute the difference
-#    and verify that the difference is small.
-# 7. Combine both the arrays into 1 and
+# 5. Combine both the arrays into 1 and
 #    -- compute the row level means
 #    -- append it as the last column, give it a name - mean
 ###############################################################################
@@ -26,8 +22,6 @@
 #            6. manipulate all the values in a column ( vectorized operations)
 #            7. splice numpy arrays using indexing
 
-import csv
-import time
 import numpy as np
 
 # 1. Use numpy's inbuilt genfromtxt function to read CSV directly to array
@@ -41,29 +35,17 @@ temp_data = np.genfromtxt( "./data/delhi_temperature_1m_missing.csv",
 # 2. Remove the last column ( 6th ), axis = 1 is across columns
 temp_data = np.delete(temp_data,5,axis=1)
 
-# 3. Reduce the sensitivity of first sensor by 10 %
-temp_data[:,0] = temp_data[:,0] * 0.9
-print ( temp_data )
-
-# 4. Remove rows 1-10
+# 3. Remove rows 1-10
 print ( temp_data.shape)
 temp_data = np.delete(temp_data,range(10),axis=0)
 print ( temp_data.shape)
 
-# 5. Split the array into 2 parts for further processing
+# 4. Split the array into 2 parts for further processing
 # We could use the split() or array_split() function as well. 
 temp_data_1 = temp_data[:,0:3]
 temp_data_2 = temp_data[:,3:5]
 
-# 6. Calculate the row-means across both the arrays
-#    verify that the difference is small
-mean_1 = np.mean(temp_data_1,axis=1)
-mean_2 = np.mean(temp_data_2,axis=1)
-
-diff = np.mean(mean_1-mean_2)
-print ( diff )
-
-# 7. combine both the arrays into 1 array and
+# 5. combine both the arrays into 1 array and
 temp_data_all = np.append(temp_data_1, temp_data_2,axis=1)
 # [:,None] is used to create a new dimension to a vector
 # essentially converting a vector to a nx1 matrix
