@@ -1,3 +1,13 @@
+###############################################################################
+# 6 sensors continously calculated the temperature of Delhi every hour
+# for the past 20 years. They are specified as columns in the csv file - one
+# column for each sensor. 
+###############################################################################
+# Task - Calculate the average temperature of Delhi over the past 20 years
+###############################################################################
+# Learning - On top of basic list operations, we will be setting the stage 
+#            to explore numeric vector based operations. 
+
 import csv
 import time
 
@@ -33,9 +43,12 @@ temp_s6 = [float(i) for i in temp_s6]
 
 average = []
 # Calculate the average hourly temperature
+start_time = time.time()
 for index, t in enumerate(temp_s1) :
     sum = temp_s1[index] + temp_s2[index] + temp_s3[index] + \
             temp_s4[index] + temp_s5[index] + temp_s6[index]
     average.append(sum/6)
+end_time = time.time()
 
-print ( average[0:100])
+print ( "time taken = ", (end_time - start_time))
+

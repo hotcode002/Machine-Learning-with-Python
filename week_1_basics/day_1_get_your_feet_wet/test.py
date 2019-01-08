@@ -1,7 +1,8 @@
-import array
+import numpy as np
 
-i = array.array('u')
+a = np.arange(20).reshape(5,4)
+print ( a)
 
-i.append('Siva')
+a[:,0] = a[:,0] * 10
 
-print ( i)
+print ( a )
