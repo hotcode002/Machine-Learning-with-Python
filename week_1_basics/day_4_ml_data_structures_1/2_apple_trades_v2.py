@@ -1,7 +1,16 @@
 ##########################################################################
 # TODO - 
-# 1. What is the monthly average "Close" price of Apple stock
-# 2. What is the yearly average "Close" price of Apple stock
+# 1. Describe the Apple Stock data frame
+#    - Column names, shape, row count
+#    - More info on data values like their min/max/mean of the columns
+# 2. Change the following column names (rest of them can remain as-is)
+#    - Ex-Dividend  -> ex_dividend
+#    - Split Ratio  -> split_ratio
+#    - Adj. Open    -> adj_open
+#    - Adj. High    -> adj_high
+#    - Adj. Low     -> adj_low
+#    - Adj. Close   -> adj_close
+#    - Adj. Volume  -> adj_volume
 # 3. plot the closing price against time
 # 4. What happened in 2014 ?
 # 5. Read the adjusted close values time series and plot again 
@@ -9,48 +18,50 @@
 # 7. Filter out just the data between 2012-01-31 and 2013-02-10
 # 8. Filter out all the data where the adjusted close price went above 150
 ##########################################################################
-from pandas import Series
+# LEARNING - 
+# 1. What is time series data
+# 2. How to read time series data using pandas 
+# 3. What is resampling
+# 4. How to plot time series
+# 5. How to filter time series data based on date ranges and actual values
+##########################################################################
+import pandas as pd
 from pandas import read_csv
 import matplotlib.pyplot as plt
 
 ##########################################################################
-# How to get the Apple stock data from quandl ?
+# How to get the stock data from quandl ?
 ##########################################################################
 # appl = quandl.get("WIKI/AAPL")         # Returns a data frame
-# appl.to_csv("./data/apple_trades.csv") # write the data frame out to CSV
+# appl.to_csv("./data/apple_df.csv") # write the data frame out to CSV
 ##########################################################################
 
-# appl = pd.read_csv("./data/apple_trades_df.csv", index_col="Date")
+appl = pd.read_csv("./data/apple_df.csv", index_col="Date")
 
-appl_close_ts = read_csv("./data/apple_close_ts.csv", parse_dates=[0],
-                             index_col      =   0,
-                             squeeze        =   True)
 
-# resample the Time Series data to summarize mean by month
-appl_close_ts_m = appl_close_ts.resample('M').mean()
+print ( appl.columns)
+print ( appl.describe() )
+print ( appl.shape )
+print ( appl.shape[0])
 
-# resample the Time Series data to summarize mean by year
-appl_close_ts_y = appl_close_ts.resample('Y').mean()
+# use the rename function specifically to rename some columns only
+appl.rename(columns={   "Adj. Low"     : "adj_low",
+                        "Adj. High"    : "adj_high",
+                        "Adj. Open"    : "adj_open",
+                        "Adj. Close"   : "adj_close",
+                        "Adj. Volume"  : "adj_volume",
+                        "Ex-Dividend"  : "ex_dividend"}, inplace = True)
 
-plt.plot( appl_close_ts )
-plt.show()
+# or create a new data frame                            
+# appl = appl.rename(columns={"Adj. Low"     : "adj_low",
+#                             "Adj. High"    : "adj_high",
+#                             "Adj. Open"    : "adj_open",
+#                             "Adj. Close"   : "adj_close",
+#                             "Adj. Volume"  : "adj_volume",
+#                             "Ex-Dividend"  : "ex_dividend"})
 
-# Read the adjusted close price
-appl_adj_close_ts = read_csv("./data/apple_adj_close_ts.csv", parse_dates=[0],
-                             index_col      =   0,
-                             squeeze        =   True)
+# or use the columns tuple to change the entire columns tuple 
+# appl.columns = ['Open', 'High', 'Low', 'Close', 'Volume', 'ex_dividend', 'split_ratio',
+#                 'adj_open', 'adj_high', 'adj_low', 'adj_close', 'adj_volume']
 
-plt.plot( appl_adj_close_ts )
-plt.show() 
-
-# Remove the data older than 1990
-appl_adj_close_ts_1990 = appl_adj_close_ts[appl_adj_close_ts.index.year > 1990]
-
-# 7. Filter out just the data between 2012-01-31 and 2013-02-10
-#    -- In the case of a time series, this is essentially filtering a DF by index
-#    -- hence, we used loc
-appl_adj_close_ts_2012= appl_adj_close_ts.loc['2010-01-31':'2013-02-10']
-
-# 8. Filter out all the data where the adjusted close price went above 150
-appl_adj_close_ts_150 = appl_adj_close_ts[appl_adj_close_ts > 150]
-print ( appl_adj_close_ts_150)
+print ( appl.columns)

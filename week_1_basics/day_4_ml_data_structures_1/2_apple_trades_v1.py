@@ -9,6 +9,14 @@
 # 7. Filter out just the data between 2012-01-31 and 2013-02-10
 # 8. Filter out all the data where the adjusted close price went above 150
 ##########################################################################
+# LEARNING - 
+# 1. What is time series data
+# 2. How to read time series data using pandas 
+# 3. What is resampling
+# 4. How to plot time series
+# 5. How to filter time series data based on date ranges and actual values
+##########################################################################
+
 from pandas import Series
 from pandas import read_csv
 import matplotlib.pyplot as plt
