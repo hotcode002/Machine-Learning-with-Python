@@ -37,11 +37,9 @@
 ##########################################################################
 
 import pandas as pd 
+import numpy as np
 
 google_ps_d = pd.read_csv("./data/google_play_store.csv")
-
-print ( google_ps_d.shape )
-
 
 # axis = 0 (default)drops all rows that contain at least one missing value
 # axis = 1 drops all columns that contain at least one missing value
@@ -51,15 +49,70 @@ print ( google_ps_d.shape )
 google_ps_d.dropna( inplace = True )
 # google_ps_d.dropna( axis=0, how='any', inplace = True )
 
-print ( google_ps_d.shape )
 
-# What is the average rating 
+##################################################################################
+# BEGIN - Data Cleaning
+##################################################################################
+
+# axis = 0 (default)drops all rows that contain at least one missing value
+# axis = 1 drops all columns that contain at least one missing value
+
+# how = "any" (default) drops rows/columns that have at least one missing value
+# how = "all" drops rows/columns that have all missing values only
+google_ps_d.dropna( inplace = True )
+# google_ps_d.dropna( axis=0, how='any', inplace = True )
+
+# Convert the Installs from string to a number
+# - Strip the string of commas and +
+google_ps_d["Installs"] = google_ps_d["Installs"].str.replace(",","")
+google_ps_d["Installs"] = google_ps_d["Installs"].str.replace("+","")
+# - Convert the string to an integer
+google_ps_d["Installs"] = pd.to_numeric(google_ps_d["Installs"], downcast = "integer")
+
+# Convert the Size from string to integer
+# - Strip the string of M
+google_ps_d["Size"] = google_ps_d["Size"].str.replace("M","")
+# - Strip the string of "Varies with device" and replace with NaN
+google_ps_d["Size"] = google_ps_d["Size"].replace("Varies with device",np.nan)
+# - Drop all rows that have NaN
+google_ps_d.dropna(axis = 0 , how="any", inplace = True)
+
+# - Convert to integer and multiply by 1000 ( to convert MB to KB  - this avoids decimals )
+google_ps_d["Size"] = pd.to_numeric(google_ps_d["Size"], downcast = "float")
+google_ps_d["Size"] = google_ps_d["Size"] * 1000
+
+# - Strip the $ symbol in price for float calculation
+google_ps_d["Price"] = google_ps_d["Price"].str.replace("$","") 
+google_ps_d["Price"] = pd.to_numeric(google_ps_d["Price"], downcast = "float")
+
+# - Convert Reviews column also to an integer. Comment this for now and see
+#   how the aggregate functions ( like mean() work
+google_ps_d["Reviews"] = pd.to_numeric(google_ps_d["Reviews"], downcast = "integer")
+
+##################################################################################
+# END - Data Cleaning
+##################################################################################
+
+# List all the unique categories
+print ( google_ps_d["Category"].unique() )
+
+# What is the mean rating of the apps
 print ( google_ps_d["Rating"].mean())
 
-# Does not work. Why ?
-print ( google_ps_d["Reviews"].mean() )
+# List the average rating across each of the category
+print ( google_ps_d.groupby(["Category"]).mean())
 
-google_ps_d['Reviews'] = pd.to_numeric(google_ps_d['Reviews'], downcast='integer')
-print ( google_ps_d["Reviews"].mean() )
+# Which category has the highest mean price ?
+mean = google_ps_d.groupby(["Category"]).mean()
+mean.sort_values("Price", axis = 0, ascending = False, inplace = True)
+print ( mean )           
 
-print ( google_ps_d.dtypes )
+# List the top 10 pricier apps
+sorted = google_ps_d.sort_values("Price", axis = 0, ascending = False)
+print ( sorted.iloc[:,[0,1,7]].head(10))
+
+# How many apps with price > 30 $
+print ( google_ps_d[google_ps_d["Price"] > 10].shape  )
+
+# What percentage of apps are FREE ?
+
