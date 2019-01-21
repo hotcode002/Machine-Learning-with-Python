@@ -1,4 +1,6 @@
 ##########################################################################
+# Program is copyright of Ajay Tech @ https://ajaytech.co
+##########################################################################
 # TODO - 
 # 1. Describe the Apple Stock data frame
 #    - Column names, shape, row count

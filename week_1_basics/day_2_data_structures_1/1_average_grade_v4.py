@@ -1,3 +1,6 @@
+##########################################################################
+# Program is copyright of Ajay Tech @ https://ajaytech.co
+##########################################################################
 # Say you are calculating the average grade across the entire district
 # Each school has a separate list of grades, we just have to calculate 
 # the average across all the lists( school ). Just for simplicity, let's 

@@ -1,3 +1,5 @@
+##########################################################################
+# Program is copyright of Ajay Tech @ https://ajaytech.co
 ###############################################################################
 # Do the same operation in Python - instead of lists, use numpy arrays. Compare
 # the time take between lists and numpy arrays for the same task.

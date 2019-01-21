@@ -1,4 +1,6 @@
 ##########################################################################
+# Program is copyright of Ajay Tech @ https://ajaytech.co
+##########################################################################
 # TODO - 
 # 1. What is the monthly average "Close" price of Apple stock
 # 2. What is the yearly average "Close" price of Apple stock

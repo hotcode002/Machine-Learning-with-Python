@@ -1,3 +1,5 @@
+##########################################################################
+# Program is copyright of Ajay Tech @ https://ajaytech.co
 ###############################################################################
 # 1. Instead of using intermediary lists, read the CSV file directly into numpy
 #    arrays using numpy's inbuilt function genfromtxt(). This is much faster.

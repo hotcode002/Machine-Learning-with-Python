@@ -1,3 +1,6 @@
+##########################################################################
+# Program is copyright of Ajay Tech @ https://ajaytech.co
+##########################################################################
 # In this program, we will find out the count of the each of the vowels
 # in a sentence.
 # Learning - 

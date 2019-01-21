@@ -1,3 +1,6 @@
+##########################################################################
+# Program is copyright of Ajay Tech @ https://ajaytech.co
+##########################################################################
 # In this program, we will find out how many vowels are there in a sentence.
 # Learning - 
 #   In this program, we will be learning

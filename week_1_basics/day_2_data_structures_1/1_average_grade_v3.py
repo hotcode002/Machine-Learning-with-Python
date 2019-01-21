@@ -1,3 +1,6 @@
+##########################################################################
+# Program is copyright of Ajay Tech @ https://ajaytech.co
+##########################################################################
 # Instead of calculating grades for just one class, let's calculate
 # the average of grades across classes 1 to 
 

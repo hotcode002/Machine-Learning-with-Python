@@ -1,5 +1,6 @@
-# Ⓒ Ajaytech - https://ajaytech.co
-#
+##########################################################################
+# Program is copyright Ⓒ of Ajay Tech @ https://ajaytech.co
+##########################################################################
 # This program is not intended to teach you Machine Learning. 
 # Instead it is intended to show what Machine Learning can solve 
 # that conventional programming cannot solve

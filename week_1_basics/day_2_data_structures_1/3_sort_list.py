@@ -1,3 +1,6 @@
+##########################################################################
+# Program is copyright of Ajay Tech @ https://ajaytech.co
+##########################################################################
 # Learning - 
 #   In this program, we will be learning
 #       1. How to take a list of numbers from the user

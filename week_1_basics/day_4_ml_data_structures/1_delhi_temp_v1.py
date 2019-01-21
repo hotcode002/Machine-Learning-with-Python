@@ -1,3 +1,5 @@
+##########################################################################
+# Program is copyright of Ajay Tech @ https://ajaytech.co
 ###############################################################################
 # 6 sensors continously calculated the temperature of Delhi every hour
 # for the past 20 years. They are specified as columns in the csv file - one

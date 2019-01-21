@@ -1,3 +1,6 @@
+##########################################################################
+# Program is copyright of Ajay Tech @ https://ajaytech.co
+##########################################################################
 # In this program, we will identify the common words in a list of sentences
 # In this program, we will learn about
 # 1. set intersection

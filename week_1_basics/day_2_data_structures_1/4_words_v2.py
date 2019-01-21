@@ -1,3 +1,6 @@
+##########################################################################
+# Program is copyright of Ajay Tech @ https://ajaytech.co
+##########################################################################
 # Give 2 sentences, identify
 # 1. common words between the sentences
 # 2. unique words across the sentences

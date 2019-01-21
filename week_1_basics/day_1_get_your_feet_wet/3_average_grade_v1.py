@@ -1,3 +1,6 @@
+##########################################################################
+# Program is copyright of Ajay Tech @ https://ajaytech.co
+##########################################################################
 # Calculate mean without using list data structure
 # In this program, we will learn about 
 # 1. int vs float

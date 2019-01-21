@@ -1,3 +1,5 @@
+##########################################################################
+# Program is copyright of Ajay Tech @ https://ajaytech.co
 ###############################################################################
 # Instead of doing vectorized operations (of adding arrays ), create a single 
 # numpy array by creating a matrix ( 2D ) and use the numpy array's inbuilt 

@@ -1,3 +1,6 @@
+##########################################################################
+# Program is copyright of Ajay Tech @ https://ajaytech.co
+##########################################################################
 # This is an extension of the previous program - except
 # we will rank each school by their average grade and 
 # list it in that order, along with the respective grades

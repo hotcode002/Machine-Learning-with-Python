@@ -1,7 +1,9 @@
 ##########################################################################
-# Data Copyright info - 
-# The data used in this program is Copyright of
+# Data Copyright - 
+# The data used in this program is Copyright of Lavanya Gupta @
 # https://www.kaggle.com/lava18/google-play-store-apps
+##########################################################################
+# Program is copyright Ⓒ of Ajay Tech @ https://ajaytech.co
 ##########################################################################
 # TODO - 
 # ##################################################################################
@@ -32,24 +34,22 @@
 # 10. How many apps with price > 10$
 ##########################################################################
 # LEARNING - 
-# 1. What is a data frame
-# 2. How to read data from file to a data frame using pandas 
-# 3. Rows and columns in a data frame
-# 4. Shape, min,max,average of values in a data frame
-# 5. How to rename columns of a data frame
-# 6. How to get the individual column values of a data frame
-# 7. How to add a new column to a data frame
-# 8. How to slice a data frame by rows, columns
-#    - Row & column based slicing using iloc
-# 9. How to filter out data from a data frame
-#    - Filter out data from any row/column based on its value
-#    - Single & multiple filters using boolean masks
+# 1. How to skip rows from reading a csv file into a data frame
+# 2. How to drop NaNs from a data frame
+# 3. How to replace string values in the cells of a data frame
+# 4. How to convert the column type of a df from object to String or integer or float
+# 5. How to multiply/compare the values of a column 
+# 6. How to get the unique values of a column 
+# 7. How to get the mean of a column
+# 8. How to perform group by operations on categorical columns
+# 9. How to sort a particular column
 ##########################################################################
 
 import pandas as pd 
 import numpy as np
 
-google_ps_d = pd.read_csv("./data/google_play_store.csv")
+# Skip the first row to ignore copyright information
+google_ps_d = pd.read_csv("./data/google_play_store.csv",skiprows=1)
 
 ##################################################################################
 # BEGIN - Data Cleaning

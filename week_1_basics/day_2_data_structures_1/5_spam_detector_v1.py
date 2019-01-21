@@ -1,3 +1,6 @@
+##########################################################################
+# Program is copyright of Ajay Tech @ https://ajaytech.co
+##########################################################################
 # Given a sentence, and a list of spam words, find out
 # 1. A spam score of the sentence.
 

@@ -1,3 +1,5 @@
+##########################################################################
+# Program is copyright of Ajay Tech @ https://ajaytech.co
 ###############################################################################
 # Instead of 100K records per sensor, we are going to increase the number of
 # records to 1 Million. 

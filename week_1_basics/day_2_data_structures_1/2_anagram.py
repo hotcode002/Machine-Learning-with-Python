@@ -1,3 +1,6 @@
+##########################################################################
+# Program is copyright of Ajay Tech @ https://ajaytech.co
+##########################################################################
 # Check if two words are anagrams or not
 # In this program you will you understand
 # 1. How sorting of a list works

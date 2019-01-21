@@ -1,3 +1,6 @@
+##########################################################################
+# Program is copyright of Ajay Tech @ https://ajaytech.co
+##########################################################################
 # This is a rewrite of the average grade program we have done on day 2
 # In this program, we will learn about 
 # 1. list data structure

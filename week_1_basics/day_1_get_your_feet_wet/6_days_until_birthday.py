@@ -1,3 +1,6 @@
+##########################################################################
+# Program is copyright of Ajay Tech @ https://ajaytech.co
+##########################################################################
 # In this program we will calculate the number of days
 # to the user entered birth date.
 # 1. date object

@@ -1,3 +1,5 @@
+##########################################################################
+# Program is copyright of Ajay Tech @ https://ajaytech.co
 ###############################################################################
 # 1. Sensor 1 seems 10% hypersensitive. Cut down it's value by 10% overall.
 # 2. Add 0.2 to all the data points to accomodate for a data error

@@ -1,3 +1,6 @@
+##########################################################################
+# Program is copyright of Ajay Tech @ https://ajaytech.co
+##########################################################################
 # In this program, we will find out the following in sentence.
 # 1. List all the words that contain a particular vowel
 # 2. List the same against each of the vowel

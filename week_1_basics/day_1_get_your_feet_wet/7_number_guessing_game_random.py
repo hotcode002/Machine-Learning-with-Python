@@ -1,3 +1,6 @@
+##########################################################################
+# Program is copyright of Ajay Tech @ https://ajaytech.co
+##########################################################################
 # In this program we will enhance the number guessing game
 # by including a random number rather than a hard-coded secret
 
