@@ -4,22 +4,32 @@
 # https://www.kaggle.com/lava18/google-play-store-apps
 ##########################################################################
 # TODO - 
+# ##################################################################################
+# BEGIN - Data Cleaning
+##################################################################################
 # 1. Drop all the null values ( NaN, NaT etc )
-# 2. Check what is the
-#    - average rating of the apps on the store ? 
-#    - average number of reviews of the apps on the store ? 
-# 3. Che
-# 3. Which category does most of the apps belong to ?
-# 4. Calculate the average stock price and set it as a new coulmn - average
-#    - average =  (adj_high + adj_open)/2
-# 5. What is the maximum adjusted volume till date ?
-# 6. When did the maximum adjusted volume occur ?
-# 7. Filter out just the data for 2018
-# 8. Filter out all the rows where the adjusted volume is > 100 M
-# 9. Filter out only the first 5 columns
-#    - Open, High, Low, Close, Volume
-#    - For these 5 columns, filter out all the rows with adjusted volume > 100 M
-#    - On top of this, filter out rows with Open value > 100
+# 2. Clean the "Installs" column
+#       - Strip it of + and , 
+#       - Convert it to integer
+# 3. Clean the "Size" column
+#       - Strip it of the MB indicator - 'M'
+#       - Strip it of the text "Varies by Device" and replace it with NaN
+#       - Strip all NAs
+#       - Convert it to integer
+#       - Convert it to KB by multiplying it by 1000
+# 3. Clean the "Price" column 
+#       - Strip it of $
+#       - Convert it to float
+# 4. Clean the "Reviews" column
+#       - Convert it to integer
+#
+# # DATA ANALYSIS
+# 5. List all the unique app "Categories"
+# 6. What is the average ( mean ) rating of the apps
+# 7. Get the mean rating per each category
+# 8. Which category has the highest mean price
+# 9. List the top 10 pricier apps
+# 10. How many apps with price > 10$
 ##########################################################################
 # LEARNING - 
 # 1. What is a data frame
@@ -40,15 +50,6 @@ import pandas as pd
 import numpy as np
 
 google_ps_d = pd.read_csv("./data/google_play_store.csv")
-
-# axis = 0 (default)drops all rows that contain at least one missing value
-# axis = 1 drops all columns that contain at least one missing value
-
-# how = "any" (default) drops rows/columns that have at least one missing value
-# how = "all" drops rows/columns that have all missing values only
-google_ps_d.dropna( inplace = True )
-# google_ps_d.dropna( axis=0, how='any', inplace = True )
-
 
 ##################################################################################
 # BEGIN - Data Cleaning
@@ -111,7 +112,7 @@ print ( mean )
 sorted = google_ps_d.sort_values("Price", axis = 0, ascending = False)
 print ( sorted.iloc[:,[0,1,7]].head(10))
 
-# How many apps with price > 30 $
+# How many apps with price > 10 $
 print ( google_ps_d[google_ps_d["Price"] > 10].shape  )
 
 # What percentage of apps are FREE ?
