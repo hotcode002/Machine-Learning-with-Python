@@ -32,21 +32,25 @@
 # 8. Which category has the highest mean price
 # 9. List the top 10 pricier apps
 # 10. How many apps with price > 10$
+# 11.   Is there a difference in size of FREE vs PAID apps on average ?
+# 12.   How large is the difference in the average installations of FREE vs paid apps ?
 ##########################################################################
 # LEARNING - 
-# 1. How to skip rows from reading a csv file into a data frame
-# 2. How to drop NaNs from a data frame
-# 3. How to replace string values in the cells of a data frame
-# 4. How to convert the column type of a df from object to String or integer or float
-# 5. How to multiply/compare the values of a column 
-# 6. How to get the unique values of a column 
-# 7. How to get the mean of a column
-# 8. How to perform group by operations on categorical columns
-# 9. How to sort a particular column
+# 1.    How to skip rows from reading a csv file into a data frame
+# 2.    How to drop NaNs from a data frame
+# 3.    How to replace string values in the cells of a data frame
+# 4.    How to convert the column type of a df from object to String or integer or float
+# 5.    How to multiply/compare the values of a column 
+# 6.    How to get the unique values of a column 
+# 7.    How to get the mean of a column
+# 8.    How to perform group by operations on categorical columns
+# 9.    How to sort a particular column
+# 10.   How to calculate the count of rows grouped by a criteria
 ##########################################################################
 
 import pandas as pd 
 import numpy as np
+import math
 
 # Skip the first row to ignore copyright information
 google_ps_d = pd.read_csv("./data/google_play_store.csv",skiprows=1)
@@ -115,5 +119,18 @@ print ( sorted.iloc[:,[0,1,7]].head(10))
 # How many apps with price > 10 $
 print ( google_ps_d[google_ps_d["Price"] > 10].shape  )
 
-# What percentage of apps are FREE ?
+# What percentage of apps are PAID ?
+paid = google_ps_d.groupby(["Type"]).size()["Paid"]
+free = google_ps_d.groupby(["Type"]).size()["Free"]
+# or use the count() aggregate function
+# google_ps_d.groupby(["Type"]).count()
+
+print ( "Percentage of paid apps = " , math.trunc ( paid/(paid+free) * 100 ) , "%" )
+
+# 11.   Is there a difference in size of FREE vs PAID apps on average ?
+print ( google_ps_d.groupby(["Type"]).mean().loc[:,["Size"]])
+
+# 12.   How large is the difference in the average installations of FREE vs paid apps ?
+print ( google_ps_d.groupby(["Type"]).mean().loc[:,["Installs"]])
+
 
