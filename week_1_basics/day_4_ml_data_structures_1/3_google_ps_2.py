@@ -30,7 +30,7 @@ import pandas as pd
 import numpy as np
 import math
 
-google_ps_d = pd.read_csv("./data/google_play_store_clean.csv",skiprows=1)
+google_ps_d = pd.read_csv("./data/google_play_store_clean.csv")
 
 # 1.    List all the unique app "Categories"
 print ( google_ps_d["Category"].unique() )

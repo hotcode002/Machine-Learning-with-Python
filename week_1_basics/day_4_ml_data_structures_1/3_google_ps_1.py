@@ -120,6 +120,7 @@ google_ps_d["Reviews"] = pd.to_numeric(google_ps_d["Reviews"], downcast = "integ
 
 # 8. Replace "Android Ver" column with the corresponding Android version name
 #       - file android_versions.csv contains the mapping between numeric version and name
+android_versions = pd.read_csv ( "./data/android_versions.csv")
 google_ps_d["Android Ver"].replace( android_versions["version"].tolist(),
                                     android_versions["name"].tolist(),
                                     inplace = True )
