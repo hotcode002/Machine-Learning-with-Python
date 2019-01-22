@@ -6,45 +6,65 @@
 # Program is copyright Ⓒ of Ajay Tech @ https://ajaytech.co
 ##########################################################################
 # TODO - 
-# ##################################################################################
-# BEGIN - Data Wrangling
-##################################################################################
-# 1. Say, the Google Playstore data comes from 3 different sources. Combine these
-#       sources into 1 big data frame row-by-row. The files are available as
-#       google_play_store_p1.csv , google_play_store_p2.csv, google_play_store_p3.csv
-# 2. Once again, say, the Google Playstore data comes from 3 different sources. 
-#       This time, each of these data sources only gives us a specific set of 
-#       columns. Combine these column-wise as follows. 
-#       google_play_store_1_5.csv - App, Category, Ratings, Reviews, Size
-#       google_play_store_5_10.csv - Installs, Type, Price, Content Rating, Genres
-#       google_play_store_11_13.csv - Last Updated, Current Version, Android Version
+# DATA ANALYSIS
+# 1.    List all the unique app "Categories"
+# 2.    What is the average ( mean ) rating of the apps
+# 3.    Get the mean rating per each category
+# 4.    Which category has the highest mean price
+# 5.    List the top 10 pricier apps
+# 6.    How many apps with price > 10$
+# 7.    What percentage of the apps are PAID
+# 8.    Is there a difference in size of FREE vs PAID apps on average ?
+# 9.    How large is the difference in the average installations of FREE vs paid apps ?
 ##########################################################################
 # LEARNING - 
-# 1.    How to concatenate data frames row-wise
-# 2.    How to concatenate data frames column-wise
+# 1.    How to multiply/compare the values of a column 
+# 2.    How to get the unique values of a column 
+# 3.    How to get the mean of a column
+# 4.    How to perform group by operations on categorical columns
+# 5.    How to sort a particular column
+# 6.    How to calculate the count of rows grouped by a criteria
 ##########################################################################
 
 import pandas as pd 
 import numpy as np
+import math
 
-# Skip the first row to ignore copyright information.
-google_ps_1 = pd.read_csv("./data/google_play_store_p1.csv",skiprows=1)
-google_ps_2 = pd.read_csv("./data/google_play_store_p2.csv",skiprows=1)
-google_ps_3 = pd.read_csv("./data/google_play_store_p3.csv",skiprows=1)
+google_ps_d = pd.read_csv("./data/google_play_store_clean.csv",skiprows=1)
 
-# 1. Say, the Google Playstore data comes from 3 different sources. Combine these
-#       sources into 1 big data 
-#       ## What happens if you do ignore_index = False
-google_ps_d = pd.concat( [google_ps_1, google_ps_2,google_ps_3], ignore_index=True)
-print ( google_ps_d)
+# 1.    List all the unique app "Categories"
+print ( google_ps_d["Category"].unique() )
 
-# Skip the first row to ignore copyright information.
-google_ps_1 = pd.read_csv("./data/google_play_store_1_5.csv",skiprows=1)
-google_ps_2 = pd.read_csv("./data/google_play_store_6_10.csv",skiprows=1)
-google_ps_3 = pd.read_csv("./data/google_play_store_11_13.csv",skiprows=1)
+# 2.    What is the average ( mean ) rating of the apps
+print ( google_ps_d["Rating"].mean())
 
-# 2. Once again, say, the Google Playstore data comes from 3 different sources. 
-#       This time, each of these data sources only gives us a specific set of 
-#       columns. Combine these column-wise as follows. 
-google_ps_d = pd.concat( [google_ps_1, google_ps_2,google_ps_3], axis = 1)
-print ( google_ps_d)
+# 3.    Get the mean rating per each category
+print ( google_ps_d.groupby(["Category"]).mean())
+
+# 4.    Which category has the highest mean price
+mean = google_ps_d.groupby(["Category"]).mean()
+mean.sort_values("Price", axis = 0, ascending = False, inplace = True)
+print ( mean )           
+
+# 5.    List the top 10 pricier apps
+sorted = google_ps_d.sort_values("Price", axis = 0, ascending = False)
+print ( sorted.iloc[:,[0,1,7]].head(10))
+
+# 6.    How many apps with price > 10$
+print ( google_ps_d[google_ps_d["Price"] > 10].shape  )
+
+# 7.    What percentage of apps are PAID ?
+paid = google_ps_d.groupby(["Type"]).size()["Paid"]
+free = google_ps_d.groupby(["Type"]).size()["Free"]
+# or use the count() aggregate function
+# google_ps_d.groupby(["Type"]).count()
+
+print ( "Percentage of paid apps = " , math.trunc ( paid/(paid+free) * 100 ) , "%" )
+
+# 8.    Is there a difference in size of FREE vs PAID apps on average ?
+print ( google_ps_d.groupby(["Type"]).mean().loc[:,["Size"]])
+
+# 9.    How large is the difference in the average installations of FREE vs paid apps ?
+print ( google_ps_d.groupby(["Type"]).mean().loc[:,["Installs"]])
+
+
