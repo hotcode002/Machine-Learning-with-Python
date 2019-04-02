@@ -11,6 +11,7 @@ mean    = 0
 count   = 0
 while True :
     grade = input ( " - ")
+    print( type(grade) )
     if grade == "e" :
         break
     else :
