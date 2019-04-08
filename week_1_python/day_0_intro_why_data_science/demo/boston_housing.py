@@ -3,7 +3,7 @@
 ##########################################################################
 # This program is not intended to teach you Machine Learning. 
 # Instead it is intended to show what Machine Learning can solve 
-# that conventional programming cannot solve
+# that conventional programming cannot solve.
 
 import numpy                as np
 import pandas               as pd
