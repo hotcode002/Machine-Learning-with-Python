@@ -7,7 +7,6 @@ while True :
     if i == "e" or i == "exit" :
         break
     else :
-        i = int(i)
         l.append(i)
 
 # Print the user entered list of values
