@@ -1,0 +1,10 @@
+fruit,round,large,small,red,green,black,golden,yellow,smooth,rough
+apple,yes,yes,no,yes,no,no,no,no,yes,no
+apple,yes,yes,no,no,yes,no,no,no,yes,no
+apple,yes,yes,no,no,no,no,yes,no,yes,no
+grape,yes,no,yes,yes,no,no,no,no,yes,no
+grape,yes,no,yes,no,yes,no,no,no,yes,no
+grape,yes,no,yes,no,no,yes,no,no,yes,no
+melon,yes,yes,no,no,yes,no,no,no,yes,no
+melon,yes,yes,no,no,no,no,yes,no,no,yes
+melon,yes,yes,no,no,no,no,no,yes,no,yes
